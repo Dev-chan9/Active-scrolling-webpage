@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Chandresh's Portfolio</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo">Hello World!</a>
+            <nav>
+                <a href="#home" style="--clr:#ff4d4d;"
+                 class="active">Home</a>
+                <a href="#about" style="--clr:#d63ee7;">About</a>
+                <a href="#services" style="--clr:#f0f566;">Services</a>
+                <a href="#portfolio" style="--clr:#2dc6f0;">Portfolio</a>
+                <a href="#contact" style="--clr:#ed1bb5;">Contact</a>
+            </nav>
+        </header>
+        <section id="home" style="--clr:#ff4d4d;"><center>It's Chandresh Upadhyay</center></section>
+        <section id="about" style="--clr:#d63ee7;"><center>I am a Web Designer (as of July 2023)</center></section>
+        <section id="services" style="--clr:#f0f566;"><center>I can Design Websites</center></section>
+        <section id="portfolio" style="--clr:#2dc6f0;"><center>Download My PORTFOLIO <br> <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" title="Just Click On it">DOWNLOAD</a></center></section>
+        <section id="contact" style="--clr:#ed1bb5;"> <center><a href="https://www.instagram.com/chandresh_upadhyay_/" target="_blank">MY INSTAGRAM</a></center></section>
+        
+        <script>
+            let sec = document.querySelectorAll('section');
+            let links = document.querySelectorAll('nav a');
+        
+            window.onscroll = () => {
+                sec.forEach(section => {
+                    let top = window.scrollY;
+                    let offset = section.offsetTop - 60;
+                    let height = section.offsetHeight;
+                    let id = section.getAttribute('id');
+        
+                    if (top >= offset && top < offset + height) {
+                        links.forEach(link => {
+                            link.classList.remove('active');
+                            document.querySelector('nav a[href*="' + id + '"]').classList.add('active');
+                        });
+                    }
+                });
+            };
+        </script>
+        
+    </body>
+</html>
